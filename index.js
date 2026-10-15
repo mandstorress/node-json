@@ -23,11 +23,14 @@ app.post('/usuarios', (req, res) => {
 })
 
 app.put('/usuarios/:id', (req, res) => {
+    const id = req.params.id
+    const dadosAtualizados = res.body
+    usuarios.splice(id, 1, dadosAtualizados)
     res.json(usuarios)
 })
 
 app.delete('/usuarios/:id', (req, res) => {
-    usuarios.splice(req.params.id,1)
+    usuarios.splice(req.params.id,2)
     res.json(usuarios)
 })
 
